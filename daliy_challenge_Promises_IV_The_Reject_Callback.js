@@ -24,3 +24,14 @@
 // promise2.catch(onRejection);
 
 
+const promiseFail = new Promise((resove, reject) => {
+    setTimeout(() => {
+        reject("It's not a dog!")
+    }, 1000)
+})
+
+const onReject = (error) => {
+    console.log(error);
+}
+
+promiseFail.catch(onReject);
