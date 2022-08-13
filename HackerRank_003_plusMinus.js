@@ -1,27 +1,37 @@
-function diagonalDifference(arr) {
-    // Write your code here
-    let cubeLength = arr.length;
-    let result = 0;
+function plusMinus(arr) {
+    let positiveCount = 0;
+    let negativeCount = 0;
+    let zeros = 0;
+    let arrLength = arr.length;
 
-    let sum1 = 0;
-    let sum2 = 0;
 
-    for (let i = 0; i < cubeLength; i++) {
-        sum1 += arr[i][i];
-        
+
+    for (let i = 0; i < arrLength; i++) {
+
+        if (arr[i] > 0) {
+            positiveCount += 1;
+        }
+
+        if (arr[i] < 0) {
+            negativeCount += 1;
+        }
+
+        if (arr[i] == 0) {
+            zeros += 1;
+        }
     }
+    
 
-    for (let i = 0; i < cubeLength; i++) {
-        sum2 += arr[i][(cubeLength - 1) - i]
-    }
 
-    result = Math.abs(sum1 - sum2);
-    console.log(result);
-    return result;
+    let pProportion = (positiveCount/arrLength).toFixed(6);
+    let nProportion = (negativeCount/arrLength).toFixed(6);
+    let zProportion = (zeros/arrLength).toFixed(6);
+
+    console.log(pProportion);
+    console.log(nProportion);
+    console.log(zProportion);
 }
 
 
-
-let val = [[11, 2, 4], [4, 5, 6], [10, 8, -12]];
-
-diagonalDifference(val)
+let arr = [-4, 3, -9, 0, 4, 1];
+plusMinus(arr);
