@@ -16,6 +16,4 @@ function kangaroo(x1, v1, x2, v2) {
 
 
 let val = kangaroo(14, 4, 98, 2);
-
-
 console.log(val);
