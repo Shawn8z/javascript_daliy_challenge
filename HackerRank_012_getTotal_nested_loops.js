@@ -9,17 +9,17 @@ function getTotalX(a, b) {
         let passA = true;
         let passB = true;
 
-        arr1.forEach((item) => {
-            if (i % item !== 0) {
+        for (let b = 0; b < arr1.length; b++) {
+            if (i % arr1[b] !== 0) {
                 passA = false;
             }
-        })
+        }
         
-        arr2.forEach((item) => {
-            if (item % i !== 0) {
+        for (let c = 0; c < arr2.length; c++) {
+            if (arr2[c] % i !== 0) {
                 passB = false;
             }
-        })
+        }
 
         if (passA && passB) {
             resultArr.push(i);
