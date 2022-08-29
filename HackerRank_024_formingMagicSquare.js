@@ -1,97 +1,56 @@
 function formingMagicSquare(s) {
     // Write your code here
-    let mSize = 3;
-    let sumX = [];
-    let sumY = [];
-    let sumLeftSlash = 0;
-    let sumRightSlash = 0;
-    let diagonalSum = [];
-    let allSums = 0;
-    let commonSum = 0;
+    // for a 3 x 3 magic square, its line sum depend on the center value, all line sum should equals
+    // 3 * center value, so you find what every line sum is and add all the differences together
 
-    let sumXOptions = [];
-    let sumYOptions = [];
-    let diagonalSumOptions = [];
+    // let lineSum = s[1][1] * 3;
+    // let lineSum = 15;
+    // let result = 0;
     
 
-    rollSums(s);
-    commonSum = getCommonSum();
-    findOptionSpot(commonSum);
 
+    // let rightDiagonal = [s[0][0], s[1][1], s[2][2]];
+    // let leftDiagonal = [s[0][2], s[1][1], s[2][0]];
+    // let centerColumn = [s[0][1], s[1][1], s[2][1]];
+    // let centerRow = [s[1][0], s[1][1], s[1][2]];
+    // let allLines = [rightDiagonal, leftDiagonal, centerColumn, centerRow]
 
-    function rollSums (s) {
-        //sum on rows
-        for (let arr of s) {
-            let sum = arr.reduce((pVal, cVal) => pVal + cVal, 0);
-            sumX.push( sum );
-        }
-
-        // sum on columns
-        for (let i = 0; i < mSize; i++) {
-            let sum = s[0][i] + s[1][i] + s[2][i];
-            sumY.push( sum );
-        }
-
-        // sum on diagonal lines
-        sumLeftSlash = s[0][0] + s[1][1] + s[2][2];
-        sumRightSlash = s[2][0] + s[1][1] + s[0][2];
-        diagonalSum = [sumLeftSlash, sumRightSlash];
-
-        allSums = sumX.concat(sumY).concat(diagonalSum);
-        
-
-        console.log(sumX);
-        console.log(sumY);
-        console.log(diagonalSum);
-        // console.log(allSums);
-    }
+    // for (let item of allLines) {
+    //     result += lineSumDifference(item);
+    // }
     
-    function getCommonSum() {
-        // find the the different types of sums;
-        let uniqueSums = [];
-        for (let item of allSums) {
-            if ( !uniqueSums.includes(item) ) {
-                uniqueSums.push(item);
-            }
-        }
+    // function lineSumDifference(roll) {
+    //     let rollSum = roll.reduce((pVal, cVal) => pVal + cVal, 0);
 
-        //find counts of all sums
-        let itemCount = [];
-        for (let i = 0; i < uniqueSums.length; i++) {
-            let count = 0;
-            
-            for (let z = 0; z < 8; z++) {
-                if (allSums[z] === uniqueSums[i]) {
-                    count += 1;
-                }
-            }
+    //     return lineSum - rollSum !== 0 ? Math.abs(lineSum - rollSum) : 0;
+    // }
+    
+    
+    // return result;
 
-            itemCount.push(count);
-            // console.log(itemCount);
 
-        }
+    const possibleMagicSquares = [
+        [2, 9, 4, 7, 5, 3, 6, 1, 8],
+        [2, 7, 6, 9, 5, 1, 4, 3, 8],
+        [4, 3, 8, 9, 5, 1, 2, 7, 6],
+        [4, 9, 2, 3, 5, 7, 8, 1, 6],
+        [8, 1, 6, 3, 5, 7, 4, 9, 2],
+        [8, 3, 4, 1, 5, 9, 6, 7, 2],
+        [6, 7, 2, 1, 5, 9, 8, 3, 4],
+        [6, 1, 8, 7, 5, 3, 2, 9, 4]
+    ] 
         
-        // find the most common sum;
-        let maxCount = Math.max(...itemCount);
-        let maxCountIndex = itemCount.findIndex((item) => item === maxCount );
-        let commonSum = uniqueSums[ maxCountIndex ];
-        return commonSum;
+    const s_flat = s.flat();
+    let totalDifferent = [];
+    for(let i = 0; i < possibleMagicSquares.length; i ++) {
+        let total = 0;
+        s_flat.reduce((previous, current, index) => {
+            total = previous + Math.abs(current - possibleMagicSquares[i][index]);
+            return total
+        }, 0)
+        totalDifferent.push(total);
     }
-
-    function findOptionSpot(commonSum) {
-        let rollX = sumX.map((item) => item !== commonSum ? 1 : 0);
-        let rollY = sumY.map((item) => item !== commonSum ? 1 : 0);
-        let diagonal = diagonalSum.map((item) => item !== commonSum ? 1 : 0);
-
-
-        console.log(rollX);
-        console.log(rollY);
-        console.log(diagonal);
-        sumXOptions = rollX;
-        sumYOptions = rollY;
-        diagonalSumOptions = diagonal;
-    }
-
+    return Math.min(...totalDifferent);
 }
 
 
@@ -112,7 +71,14 @@ let s3 = [
             [4, 8, 2],
             [4, 5, 7],
             [6, 1, 6]
-        ];         
+        ];  
+        
+let s4 = [
+            [4, 8, 2],
+            [4, 5, 7],
+            [6, 1, 6]
+        ]
 
 
-formingMagicSquare(s1);
+let val = formingMagicSquare(s4);
+console.log(val);
