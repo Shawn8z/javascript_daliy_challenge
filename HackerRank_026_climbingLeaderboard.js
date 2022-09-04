@@ -1,51 +1,68 @@
 function climbingLeaderboard(ranked, player) {
     // Write your code here
-    let leaderBoard = [];
-    let boardLength = ranked.length;
 
-    for (let i = 0; i < boardLength ; i++) {
-        if (!leaderBoard.includes(ranked[i])) {
-            leaderBoard.push(ranked[i]);
+    let preScore = null;
+    let rank = 1;
+    let ranks = {};
+    let result = [];
+    
+    // build the ranks object
+    for (let item of ranked) {
+        if (preScore === null) {
+            preScore = item;
+            ranks[item] = rank
         }
+
+        if (item === preScore) {
+            ranks[item] = rank
+        }
+
+        if (item < preScore) {
+            rank += 1;
+            ranks[item] = rank
+        }
+
+        preScore = item;
     }
 
 
     for (let item of player) {
-        
-        addScoreToLeaderBoard(item, leaderBoard, boardLength);
+
+        getRank(item, ranks);
 
     }
 
+    
 
+    function getRank(score, rankObj) {
+        for ( let key of Object.keys(rankObj) ) {
+            if (score - Number(key) < 0) {
+                console.log(rankObj[key] + 1);
+                return rankObj[key] + 1;
 
+            } else if (score - Number(key) == 0) { 
+                console.log(rankObj[key]);
+                return rankObj[key];
 
-    function addScoreToLeaderBoard(score, leaderBoardArr, arrLength) {
-
-        for (let i = arrLength - 1; i >= 0; i--) {
-        
-            if (score - leaderBoardArr[i] < 0) {
-                console.log(i + 2);
-                return i + 2
-
-            } else if (score - leaderBoardArr[i] == 0) {
-                console.log(i + 1);
-                return i + 1;
+            } else if (score - Number(key) > 0) {
                 
-            } else if (score - leaderBoardArr[0] > 0) {
-                console.log(1);
-                return 1;
-
+                if (rankObj[key] === 1) {
+                    console.log(1);
+                    return 1;
+                }
+                continue;
             }
+            
         }
     }
 
 }
 
 
-let rankedArr = [100, 100, 50, 40, 40, 20, 10];
+let rankedArr1 = [100, 100, 50, 40, 40, 20, 10];
 let rankedArr2 = [100, 90, 90, 80, 75, 60];
-// 100 90 90 80 75 60
-let playerScores = [5, 25, 50, 120];
+
+let playerScores1 = [5, 25, 50, 120];
 let playerScores2 = [50, 65, 77, 90, 102];
 
 climbingLeaderboard(rankedArr2, playerScores2);
