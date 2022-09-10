@@ -76,3 +76,6 @@ let val = [
 
 // val.splice(7+1, 0, 5);
 // console.log(val);
+
+
+// Math

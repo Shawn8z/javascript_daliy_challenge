@@ -1,47 +1,20 @@
 function saveThePrisoner(n, m, s) {
     // Write your code here
-    let candyCount = m;
-    let seatArr = [];
-
-    let currentSeat = s;
-    for (let i = 1; i <= n; i++) {
-        seatArr.push(i);
-    }
-
-    // (candyCount - 1 )is because the function only output the nextSeat, 
-    // it doesn`t consider that the start seat has taken the candy,
-    // so the total count of loops will be adjusted for that.
-    for (let i = 0; i < candyCount - 1 ; i++) {
-
-        currentSeat = moveOverOnePerson(seatArr, currentSeat, n);
-
-    }
 
 
-    function moveOverOnePerson(seatArr, currentSeat, n) {
-        let EndIndex = n;
-        let index = seatArr.findIndex( (item) => item === currentSeat );
-        let nextIndex = 0;
 
-        if (index + 1 >= EndIndex) {
-            nextIndex = 0;
-        } else {
-            nextIndex = index + 1;
-        }
 
-        let nextSeat = seatArr[ nextIndex ];
+    let  result = (m - 1 + s);
 
-        return nextSeat;
-    }
 
-    return currentSeat;
+    console.log(6 % 5 + (s - 1)) ;
+    return result;
 }
 
 
-
-let n = 7;
-let m = 19;
-let s = 2;
+let n = 3;
+let m = 7;
+let s = 3;
 
 let val = saveThePrisoner(n, m, s);
 
