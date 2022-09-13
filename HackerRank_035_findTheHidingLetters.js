@@ -5,9 +5,6 @@ function findLetters(str) {
     return result;
 }
 
-
-
-
 let test1 = "UcUNFYGaFYFYGtNUH";
 let test2 = "bEEFGBuFBRrHgUHlNFYaYr";
 let test3 = "YFemHUFBbezFBYzFBYLleGBYEFGBMENTment";

@@ -12,8 +12,7 @@ function circularArrayRotation(a, k, queries) {
     for (let i = 0; i < 10; i++) {
         console.log((i + 1) % 10);
     }
-    
-
+    let test = ""
     // function shiftLastArrItemToFront(arr) {
     //     let lastItem = arr.slice(-1);
     //     let remainingArr = arr.slice(0, -1);
