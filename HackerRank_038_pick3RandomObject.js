@@ -25,7 +25,7 @@ function Pick3RandomObj(arr) {
     }
 
     console.log(resultArr);
-    // return resultArr;
+    return resultArr;
 }
 
 
