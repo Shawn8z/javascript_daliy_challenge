@@ -5,13 +5,28 @@ function appendAndDelete(s, t, k) {
     let maxLength = 0;
     let startIndex = 0;
     let processSteps = 0;
-    let same = false;
+
 
     if (str1.length < str2.length) {
-        maxLength = str2.length;
-    } else {
+
+        if ( k % (str2.length - str1.length)  == 0 && str2.length - str1.length != 1) {
+            return "Yes";
+        } else {
+            return "No";
+        }
+
+    } else if (str1.length > str2.length) {
+
         maxLength = str1.length
+
+    } else {
+        if (str1.length % 2 == 0 && k % 2 == 0) {
+            return "Yes";
+        } else {
+            return "No";
+        }
     }
+
 
     for (let i = 0; i < maxLength; i++) {
         if (str1[i] != str2[i]) {
@@ -27,7 +42,8 @@ function appendAndDelete(s, t, k) {
 
     if (processSteps != maxLength) {
         processSteps = str1.slice(startIndex).length + str2.slice(startIndex).length;
-    }
+    } 
+
 
     if (processSteps == k || processSteps < k) {
         return "Yes";
@@ -39,9 +55,9 @@ function appendAndDelete(s, t, k) {
 
 
 
-let startingStr = "y";
-let targetStr = "yu";
-let steps = 2;
+let startingStr = "asdfqwertyuighjkzxcvasdfqwertyuighjkzxcvasdfqwertyuighjkzxcvasdfqwertyuighjkzxcvasdfqwertyuighjkzxcv";
+let targetStr = "asdfqwertyuighjkzxcvasdfqwertyuighjkzxcvasdfqwertyuighjkzxcvasdfqwertyuighjkzxcvasdfqwertyuighjkzxcv";
+let steps = 20;
 
 
 let result = appendAndDelete(startingStr, targetStr, steps);
