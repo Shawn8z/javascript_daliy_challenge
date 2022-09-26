@@ -1,4 +1,4 @@
-function circularArrayRotation(a, k, queries) {
-    // Write your code here
+function randomPick(arr, numOfItems) {
+    let itemCount = arr.length;
 
 }
