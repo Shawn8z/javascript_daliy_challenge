@@ -25,3 +25,6 @@ function squares(a, b) {
 
 squares(3, 9);
 squares(17, 24);
+
+
+
