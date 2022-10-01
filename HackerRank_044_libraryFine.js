@@ -1,30 +1,29 @@
-function squares(a, b) {
+function libraryFine(d1, m1, y1, d2, m2, y2) {
     // Write your code here
-    let numStart = a;
-    let numEnd = b;
-    let counter = 0;
+    let fine = 0;
 
-    // for (let i = numStart; i <= numEnd; i++) {
-    //     let rootResult = Math.sqrt(i);
-        
-    //     if (Number.isInteger(rootResult)) {
-    //         counter += 1;
-    //     }
-        
-    // }
-    // for (let i = 1; i <= numEnd; i++) {
-    //     if (i * i >= numStart && i * i <= numEnd) {
-    //         counter += 1;
-    //     }
-    // }
+    if ( d1 <= d2 && m1 == m2 && y1 == y2 ) {
+        return fine;
+    }
 
-    console.log(counter);
-    return counter;
+    if (y1 > y2) {
+        fine = 10000;
+        return fine;
+    }
+
+    if ( m1 > m2 && y1 == y2 ) {
+        let tempVal = (m1 - m2) * 500;
+        fine += tempVal;
+    }
+
+    if ( d1 > d2 && m1 == m2 && y1 == y2 ) {
+        let tempVal = (d1 -d2) * 15;
+        fine += tempVal;
+    }
+
+    return fine;
 }
 
 
-squares(3, 9);
-squares(17, 24);
-
-
-
+let fine = libraryFine(9, 6, 2015, 6, 6, 2015);
+console.log(fine);
