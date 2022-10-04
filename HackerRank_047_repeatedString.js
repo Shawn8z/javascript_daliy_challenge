@@ -44,7 +44,6 @@ function repeatedString(s, n) {
         return letterCount;
     } else {
 
-        // console.log("bigger");
         for (let i = 0; i < n; i++) {
             resultStr += str[i];
         }
@@ -63,8 +62,8 @@ function repeatedString(s, n) {
 }
 
 
-let str = "aab";
-let num = 882787;
+let str = "kmretasscityylpdhuwjirnqimlkcgxubxmsxpypgzxtenweirknjtasxtvxemtwxuarabssvqdnktqadhyktagjxoanknhgilnm";
+let num = 736778906400;
 
 
 let val = repeatedString(str, num);
