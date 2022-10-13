@@ -1,30 +1,6 @@
 function taumBday(b, w, bc, wc, z) {
     // Write your code here
 
-    // if (bc > wc) {
-    //     if (wc + z < bc) {
-    //         bc = wc + z;
-    //     }
-    // } else {
-    //     if (bc + z < wc) {
-    //         wc = bc + z;
-    //     }
-    // }
-
-    // let bCost = b * bc;
-    // let wCost = w * wc;
-    // let total = bCost + wCost;
-    
-
-    // if (Number.MAX_SAFE_INTEGER < total) {
-    //     let result = BigInt(total);
-    //     console.log(BigInt.asIntN(64, result));
-    // }
-
-    // this is the bigInt apporach
-
-
-
     let bCount = BigInt(b);
     let wCount = BigInt(w);
 
