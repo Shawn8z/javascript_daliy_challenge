@@ -19,23 +19,23 @@ function beautifulTriplets(d, arr) {
         let hasThird = null;
 
         hasSecond = arr.findIndex((item) => item == firstItem + d);
+        
         if (hasSecond != -1) {
             secItem = arr[hasSecond];
+            hasThird = arr.findIndex((item) => item == secItem + d);
         }
+        // hasThird = arr.findIndex((item) => item == secItem + d);
 
-        hasThird = arr.findIndex((item) => item == secItem + d);
         if (hasThird != -1) {
             thirdItem = arr[hasThird];
         }
         
         if (hasSecond != -1 && hasThird != -1) {
             return [item, secItem, thirdItem];
-        } else {
-            return false;
         }
     }
 
-    console.log(result);
+
     return result;
 }
 
