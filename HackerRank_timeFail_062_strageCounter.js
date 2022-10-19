@@ -1,8 +1,8 @@
 function strangeCounter(t) {
     // Write your code here
-    let second = 1;
-    let targetT = t;
-    let initVal = 3;
+    let second = BigInt(1);
+    let targetT = BigInt(t);
+    let initVal = BigInt(3);
 
     while (second != targetT) {
         // console.log("loop started");
@@ -23,11 +23,11 @@ function strangeCounter(t) {
                 return i;
             }
 
-            second += 1;
+            second += BigInt(1);
             
             if (i == 1) {
                 // console.log("reached 1");
-                return initNum * 2
+                return initNum * BigInt(2);
             }
         }
 
