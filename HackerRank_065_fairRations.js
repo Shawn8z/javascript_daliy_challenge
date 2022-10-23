@@ -19,13 +19,6 @@ function fairRations(B) {
         return "NO";
     }
 
-    function isItemEven(index) {
-        if (breadArr[index] % 2 == 0) {
-            return true;
-        } else {
-            return false;
-        }
-    }
 
 }
 
