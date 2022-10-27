@@ -20,7 +20,7 @@ function cavityMap(grid) {
                         grid[y][x-1],
                         grid[y][x+1]
                     ];
-                    let isMax = !edgeArr.some((item) => item > targetNum);
+                    let isMax = !edgeArr.some((item) => item >= targetNum);
                     if (isMax) {
                         let strL = grid[y].slice(0, x);
                         let strR = grid[y].slice(x+1);
