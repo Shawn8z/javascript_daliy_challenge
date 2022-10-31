@@ -9,15 +9,19 @@ function stones(n, a, b) {
     let resultArr = [];
     let diffCombos = [[diff1, diff1], [diff1, diff2], [diff2, diff1], [diff2, diff2]];
     
-    
+    diffComboBuilder(n, a, b);
 
-    for (let i = 0; i < diffCombos.length; i++) {
-        let diffs = diffCombos[i];
+    // for (let i = 0; i < diffCombos.length; i++) {
+    //     let diffs = diffCombos[i];
 
-        let combo = comboMaker(n, diffs);
-        console.log(combo);
+    //     let combo = comboMaker(n, diffs);
+    //     // console.log(combo);
+
+    //     diffComboBuilder();
+    // }
+
         // resultArr.push(combo);
-    }
+
 
     function comboMaker(n, diffCombos, index) {
         let diffArr = diffCombos;
@@ -38,9 +42,34 @@ function stones(n, a, b) {
         return result;
     }
 
-    function diffComboBuilder() {
+    function diffComboBuilder(n, a, b) {
+        let slots = n - 1;
+        let diffArr = [a, b];
+        let comboArr = [];
+
+        for (let z = 0; z < 2; z++) {
+
+            let combo = [];
+
+
+            for (let i = 0; i < slots; i++) {
+                console.log(i%2)
+                combo.push(diffArr[i % 2]);
+                
+                if (i === slots - 1) {
+                    comboArr.push(combo);
+                    combo = [];
+                }
+                
+            }
+
+            
+            console.log(comboArr);
+        }
         
     }
+
+    // return
 }
 
 
