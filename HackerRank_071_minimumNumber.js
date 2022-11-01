@@ -4,51 +4,53 @@ function minimumNumber(n, password) {
 
     let regexD = /[0-9]/;
     if (!regexD.test(password)) {
-        // console.log("password need to contain at least one digit");
+        console.log("digit");
         count += 1;
     }
 
     let regexL = /[a-z]/;
     if (!regexL.test(password)) {
-        // console.log("password need to contain at least one lower case letter");
+        console.log("lower case letter");
         count += 1;
     }
 
     let regexU = /[A-Z]/;
     if (!regexU.test(password)) {
-        // console.log("password need to contain at least one upper case letter");
+        console.log("upper case letter");
         count += 1;
     }
 
-    let regexS = /[!@#$%^&*()-+]/;
+    let regexS = /[!@#$%^&*()\-+]/;
     if (!regexS.test(password)) {
-        // console.log("password need to contain at least one upper special characters");
+        console.log("special character");
         count += 1;
     }
 
-    // console.log(`count before length ${count}`);
+    console.log(`count before length ${count}`);
+
+
     if (n == 6 && count == 0) {
         return 0;
     }
 
     if (n < 6) {
-        // console.log("password too short");
+        console.log("password too short");
         if (count == 0) {
-            // console.log(1)
+            console.log("a")
             count = 6 - n;
         } else if (count <= 6 - n){
-            // console.log(2)
+            console.log("b")
             count = 6 - n;
-        } else {
-            // console.log(3)
+        } else if (n !== password.length) {
+            console.log("c")
             count -= 6 - n;
         }
-    }
+    } 
 
-    console.log(count);
+    // console.log(count);
     return count;
 }
 
-let val1 = [5, "2bbbb"];
+let val1 = [7, "AUzs-nV"];
 
 minimumNumber(...val1);
